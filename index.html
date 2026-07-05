@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vaikunthan | DevOps, MLOps, Platform Engineer, SRE | Sydney</title>
+<meta name="description" content="DevOps, MLOps, Platform Engineer and SRE in Sydney, Australia. AWS SAA, CKA, RHCSA certified. Kubernetes, Terraform, CI/CD, observability." />
+<meta property="og:title" content="Vaikunthan | DevOps and Platform Engineer" />
+<meta property="og:description" content="AWS SAA, CKA, RHCSA certified engineer in Sydney. Kubernetes platforms, CI/CD, IaC." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="site">
+
+<header class="topbar">
+  <a class="brand" href="#top"><span class="k8s">⎈</span> vaikunthan</a>
+  <div class="topbar-right">
+    <nav class="nav" id="nav">
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="icon-btn" id="themeToggle" aria-label="Toggle day and night mode">☀️</button>
+    <button class="icon-btn menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div>
+      <div class="avail"><span class="pulse"></span>AVAILABLE FOR HIRE · AUSTRALIA</div>
+      <h1>Vaikunthan<br /><span class="typed" id="typed"></span><span class="caret"></span></h1>
+      <p class="bio">I build production-grade Kubernetes platforms, secure CI/CD pipelines, and AWS infrastructure for regulated environments like banking and financial services. I turn manual ops work into Terraform, pipelines, and Python.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn" href="assets/Vaikunthan_CV.pdf" download>Download CV</a>
+        <a class="btn" href="https://github.com/vaikunthan28" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </div>
+
+    <!-- signature: profile as a k8s manifest -->
+    <div class="manifest" aria-label="Profile summary formatted as a Kubernetes manifest">
+      <div class="manifest-bar">
+        <span class="wdot" style="background:#ff5f57"></span>
+        <span class="wdot" style="background:#febc2e"></span>
+        <span class="wdot" style="background:#28c840"></span>
+        &nbsp;engineer.yaml
+      </div>
+<pre><span class="yk">apiVersion:</span> <span class="ys">careers/v1</span>
+<span class="yk">kind:</span> <span class="ys">PlatformEngineer</span>
+<span class="yk">metadata:</span>
+  <span class="yk">name:</span> <span class="ys">vaikunthan</span>
+  <span class="yk">location:</span> <span class="ys">sydney-australia</span>
+  <span class="yk">labels:</span>
+    <span class="yk">status:</span> <span class="ys">available</span>
+    <span class="yk">roles:</span> <span class="ys">[devops, mlops, platform, sre]</span>
+<span class="yk">spec:</span>
+  <span class="yk">certifications:</span> <span class="ys">[aws-saa, cka, rhcsa]</span>
+  <span class="yk">core:</span> <span class="ys">[aws, kubernetes, terraform]</span>
+  <span class="yk">cicd:</span> <span class="ys">[gitlab-ci, jenkins, azure-devops]</span>
+  <span class="yk">observability:</span> <span class="ys">[prometheus, grafana, datadog]</span>
+  <span class="yk">replicas:</span> <span class="ys">1</span>  <span class="yc"># one of a kind</span></pre>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects" class="section">
+    <div class="sec-head"><h2>Projects</h2><span class="sec-tag">kubectl get deployments</span></div>
+    <div class="grid" id="projectGrid"></div>
+  </section>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience" class="section">
+    <div class="sec-head"><h2>Experience</h2><span class="sec-tag">pipeline: 2018 → now</span></div>
+    <div class="pipeline">
+
+      <div class="stage">
+        <div class="stage-icon running">●</div>
+        <div class="stage-meta">Mar 2024 - Present · Sydney, Australia</div>
+        <h3>IT Support Engineer <span class="at">@ QSL</span></h3>
+        <ul>
+          <li>Diagnosed and resolved hardware faults across 200+ Chromebook units per week.</li>
+          <li>Hardware testing with Blancco, Windows 10/11 imaging, secure data erasure on refurbished devices.</li>
+          <li>Windows Server, SQL Server, VMware, Active Directory, Office 365.</li>
+        </ul>
+      </div>
+
+      <div class="stage">
+        <div class="stage-icon pass">✓</div>
+        <div class="stage-meta">Jun 2023 - Sep 2023 · Sydney, Australia</div>
+        <h3>Production Support Engineer <span class="at">@ DataMesh Group</span></h3>
+        <ul>
+          <li>AWS production support for a payments platform, improving uptime by 15% and cutting incident response times by 20%.</li>
+          <li>Monitoring with Splunk, root cause analysis, preventive fixes.</li>
+          <li>Stack: AWS, Akamai, Imperva WAF, HSM (FutureX, Thales), Jira.</li>
+        </ul>
+      </div>
+
+      <div class="stage">
+        <div class="stage-icon pass">✓</div>
+        <div class="stage-meta">Nov 2021 - Mar 2023 · Remote, Sri Lanka</div>
+        <h3>DevOps Engineer <span class="at">@ BlackSwan Technologies</span></h3>
+        <ul>
+          <li>AWS and Azure infrastructure with CloudFormation and Terraform, improving resource utilisation by 20%.</li>
+          <li>CI/CD pipelines with Jenkins and Azure DevOps, cutting deployment times by 25%.</li>
+          <li>ECS, VPC, RDS, Lambda, API Gateway, Cognito, CloudWatch.</li>
+        </ul>
+      </div>
+
+      <div class="stage">
+        <div class="stage-icon pass">✓</div>
+        <div class="stage-meta">Jul 2020 - Nov 2021 · Remote</div>
+        <h3>SysOps Engineer <span class="at">@ Mitto</span></h3>
+        <ul>
+          <li>L1/L2 support for high-volume SMS services; monitoring with Kibana, Grafana, Prometheus.</li>
+          <li>Incident management in Zendesk within SLA.</li>
+        </ul>
+      </div>
+
+      <div class="stage">
+        <div class="stage-icon pass">✓</div>
+        <div class="stage-meta">Dec 2018 - Jun 2020 · Colombo, Sri Lanka</div>
+        <h3>System Engineer <span class="at">@ CodeGen International</span></h3>
+        <ul>
+          <li>24x7 production support and deployments for Java-based and web applications.</li>
+          <li>Tomcat, Oracle, MySQL, AWS and on-prem Linux; AppDynamics, Zabbix, Splunk.</li>
+        </ul>
+      </div>
+
+      <div class="stage">
+        <div class="stage-icon pass">✓</div>
+        <div class="stage-meta">Feb 2018 - Sep 2018 · Colombo, Sri Lanka</div>
+        <h3>Assistant LAN/WAN Administrator <span class="at">@ Lanka Bell</span></h3>
+        <ul>
+          <li>VPNs, DNS, DHCP, Active Directory on Windows Server; Apache and Nginx web servers.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills" class="section">
+    <div class="sec-head"><h2>Skills</h2><span class="sec-tag">kubectl get nodes --show-labels</span></div>
+    <div class="skills">
+      <div>
+        <div class="skill-key">cloud:</div>
+        <div class="tags">
+          <span class="label-chip"><span>aws/</span>eks</span>
+          <span class="label-chip"><span>aws/</span>ecs</span>
+          <span class="label-chip"><span>aws/</span>lambda</span>
+          <span class="label-chip"><span>aws/</span>vpc</span>
+          <span class="label-chip"><span>aws/</span>rds</span>
+          <span class="label-chip"><span>aws/</span>route53</span>
+          <span class="label-chip">azure</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-key">iac-and-automation:</div>
+        <div class="tags">
+          <span class="label-chip">terraform</span>
+          <span class="label-chip">cloudformation</span>
+          <span class="label-chip">ansible</span>
+          <span class="label-chip">packer</span>
+          <span class="label-chip">python</span>
+          <span class="label-chip">bash</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-key">cicd-and-containers:</div>
+        <div class="tags">
+          <span class="label-chip">gitlab-ci</span>
+          <span class="label-chip">jenkins</span>
+          <span class="label-chip">azure-devops</span>
+          <span class="label-chip">docker</span>
+          <span class="label-chip">kubernetes</span>
+          <span class="label-chip">git</span>
+        </div>
+      </div>
+      <div>
+        <div class="skill-key">observability:</div>
+        <div class="tags">
+          <span class="label-chip">prometheus</span>
+          <span class="label-chip">grafana</span>
+          <span class="label-chip">loki</span>
+          <span class="label-chip">datadog</span>
+          <span class="label-chip">splunk</span>
+          <span class="label-chip">cloudwatch</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CERTIFICATIONS ============ -->
+  <section id="certifications" class="section">
+    <div class="sec-head"><h2>Certifications</h2><span class="sec-tag">all verifiable</span></div>
+    <div class="grid certs">
+      <a class="card cert" href="https://www.credly.com/badges/1c391593-6b0a-4360-94cf-b04104282aae" target="_blank" rel="noreferrer">
+        <span class="cert-short">AWS SAA</span>
+        <h3>AWS Certified Solutions Architect - Associate</h3>
+        <p class="dim">Amazon Web Services · Jun 2022</p>
+        <span class="repo-link">Verify credential →</span>
+      </a>
+      <a class="card cert" href="https://www.credly.com/badges/148056db-7a2b-4b5d-8699-e860632ca58c" target="_blank" rel="noreferrer">
+        <span class="cert-short">CKA</span>
+        <h3>Certified Kubernetes Administrator</h3>
+        <p class="dim">The Linux Foundation · Aug 2022</p>
+        <span class="repo-link">Verify credential →</span>
+      </a>
+      <a class="card cert" href="https://www.redhat.com/rhtapps/services/certifications/badge/verify/XMFTXHZTQDFRKHKD77A5H3ITOIAEQU3CUPSQX2KSDXT6RW46LQ3T7ULZ55KZZ56SKO7EQ3ETTLYZQ4U5NQYTCNA62RUWOCM34WWBUYQ=" target="_blank" rel="noreferrer">
+        <span class="cert-short">RHCSA</span>
+        <h3>Red Hat Certified System Administrator</h3>
+        <p class="dim">Red Hat · Feb 2019</p>
+        <span class="repo-link">Verify credential →</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section id="contact" class="section contact">
+    <h2>Let's talk.</h2>
+    <p>Hiring a DevOps or Platform Engineer in Australia? I'm interviewing now.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="mailto:your-email@example.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/vaik/" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a class="btn" href="https://github.com/vaikunthan28" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>© 2026 vaikunthan · html + css + js, no framework</span>
+  <span class="up"><span class="pulse"></span>status: operational</span>
+</footer>
+
+</div>
+<script src="js/script.js"></script>
+</body>
+</html>
