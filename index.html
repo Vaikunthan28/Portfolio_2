@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/fixes.css" />
 </head>
 <body>
 <div class="site">
@@ -21,6 +22,13 @@
   <div class="topbar-right">
     <nav class="nav" id="nav">
       <a href="#projects">Projects</a>
+      <div class="nav-drop">
+        <button class="nav-drop-btn" id="notesBtn" aria-expanded="false" aria-controls="notesMenu">Notes <span class="chev">&#9662;</span></button>
+        <div class="nav-menu" id="notesMenu">
+          <a href="fixes/">Fixes</a>
+          <a href="blog/">Blog</a>
+        </div>
+      </div>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#certifications">Certifications</a>
@@ -238,11 +246,12 @@
 </main>
 
 <footer class="footer">
-  <span>© 2026 vaikunthan · html + css + js, no framework</span>
+  <span>© 2026 vaikunthan · markdown in, static html out · built and deployed by github actions</span>
   <span class="up"><span class="pulse"></span>status: operational</span>
 </footer>
 
 </div>
 <script src="js/script.js"></script>
+<script src="js/nav.js"></script>
 </body>
 </html>

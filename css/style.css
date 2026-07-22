@@ -26,8 +26,8 @@ html[data-theme="light"] {
   --muted: #46536a;
   --blue: #1d5fd6;
   --blue-strong: #1a4fb0;
-  --green: #0d8a4f;
-  --amber: #a86a00;
+  --green: #0b7c47;
+  --amber: #965f00;
   --key: #1a4fb0;
   --str: #0d7a46;
   --cmt: #7a879c;
@@ -37,8 +37,15 @@ html[data-theme="light"] {
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; background: var(--bg); }
-.site { background: var(--bg); min-height: 100vh; }
+html {
+  scroll-behavior: smooth; background: var(--bg);
+  /* Base size for the whole site. Every rem value scales from this.
+     17px on phones, growing smoothly to 20px on a wide monitor. */
+  font-size: clamp(17px, 15px + 0.33vw, 20px);
+}
+.site { background: var(--bg); min-height: 100vh; display: flex; flex-direction: column; }
+.site > main { flex: 1 0 auto; }
+.site > .footer { margin-top: auto; }
 body {
   background: var(--bg);
   color: var(--text);
@@ -55,19 +62,20 @@ h1, h2, h3 { font-family: "Sora", sans-serif; letter-spacing: -0.01em; }
 .topbar {
   position: sticky; top: 0; z-index: 50;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 0.85rem 1.25rem;
+  padding: 1.05rem 1.25rem;
   background: var(--topbar);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
 .brand {
-  font-family: "JetBrains Mono", monospace; font-size: 0.88rem; font-weight: 700;
-  color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 0.55rem;
+  font-family: "JetBrains Mono", monospace; font-size: 1.02rem; font-weight: 700;
+  color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 0.6rem;
+  letter-spacing: -0.01em;
 }
-.brand .k8s { color: var(--blue); }
+.brand .k8s { color: var(--blue); font-size: 1.45em; line-height: 1; }
 .topbar-right { display: flex; align-items: center; gap: 0.7rem; }
 .nav { display: flex; gap: 1.4rem; }
-.nav a { color: var(--muted); text-decoration: none; font-size: 0.85rem; font-weight: 500; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; }
 .nav a:hover, .nav a:focus-visible { color: var(--blue-strong); }
 .icon-btn {
   background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
@@ -147,7 +155,7 @@ h1, h2, h3 { font-family: "Sora", sans-serif; letter-spacing: -0.01em; }
 }
 
 /* ================= PROJECTS = deployments ================= */
-.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 1rem; }
 .card {
   background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
   display: flex; flex-direction: column;
@@ -232,12 +240,12 @@ h1, h2, h3 { font-family: "Sora", sans-serif; letter-spacing: -0.01em; }
 
 /* ================= LARGE DESKTOP / MONITOR ================= */
 @media (min-width: 1200px) {
-  html { font-size: 18px; }
-
   .hero { max-width: 1240px; gap: 3.5rem; padding-top: 5.5rem; }
   .section { max-width: 1240px; padding-top: 4rem; padding-bottom: 4rem; }
 
   .bio { max-width: 640px; font-size: 1.02rem; }
+  .brand { font-size: 1.12rem; }
+  .nav a { font-size: 0.95rem; }
 
   .tag, .label-chip {
     font-size: 0.85rem;

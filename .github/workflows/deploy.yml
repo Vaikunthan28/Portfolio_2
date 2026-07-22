@@ -1,42 +1,77 @@
-# Deploys the site to GitHub Pages on every push to main.
+# Builds the site from Markdown and deploys it to GitHub Pages.
 # Setup (one time): repo Settings -> Pages -> Source: "GitHub Actions"
-name: Deploy to GitHub Pages
+#
+# Pipeline: validate content -> build -> check links -> deploy.
+# Pull requests run the first three steps but never publish.
+name: build and deploy
 
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
+# Least privilege at the top. The deploy job raises only what it needs.
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
+# Never let two deploys race. In-progress deploys are allowed to finish so a
+# half-published site is not left live.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
+    name: validate and build
     runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install build dependencies
+        run: pip install -r requirements.txt
+
+      - name: Validate content
+        # Fails on malformed projects.json, missing frontmatter, bad dates,
+        # or two posts claiming the same URL.
+        run: python3 build.py --check
+
+      - name: Build site
+        run: python3 build.py --out dist
+
+      - name: Check internal links
+        # TODO: delete the --ignore line once assets/Vaikunthan_CV.pdf exists.
+        # The "Download CV" button in the hero currently points at a file that
+        # is not in the repo, so without this waiver the deploy would fail.
+        run: |
+          python3 linkcheck.py --dir dist \
+            --ignore assets/Vaikunthan_CV.pdf
+
+      - name: Upload build output
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    name: deploy to GitHub Pages
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Validate projects.json
-        run: python3 -m json.tool projects.json > /dev/null
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload site
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4

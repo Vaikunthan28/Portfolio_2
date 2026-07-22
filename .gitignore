@@ -1,0 +1,29 @@
+# Build output
+dist/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Node (in case you add tooling later)
+node_modules/
+npm-debug.log*
+
+# Local env
+.env
+.env.local
