@@ -330,10 +330,10 @@ def page_shell(*, title: str, description: str, canonical: str, depth: int, body
 <div class="site">
 
 <header class="topbar">
-  <a class="brand" href="{up}index.html"><span class="k8s">&#9096;</span> vaikunthan</a>
+  <a class="brand" href="{up}"><span class="k8s">&#9096;</span> vaikunthan</a>
   <div class="topbar-right">
     <nav class="nav" id="nav">
-      <a href="{up}index.html#projects">Projects</a>
+      <a href="{up}#projects">Projects</a>
       <div class="nav-drop">
         <button class="nav-drop-btn" id="notesBtn" aria-expanded="false" aria-controls="notesMenu">Notes <span class="chev">&#9662;</span></button>
         <div class="nav-menu" id="notesMenu">
@@ -341,9 +341,9 @@ def page_shell(*, title: str, description: str, canonical: str, depth: int, body
           <a href="{up}blog/">Blog</a>
         </div>
       </div>
-      <a href="{up}index.html#experience">Experience</a>
-      <a href="{up}index.html#skills">Skills</a>
-      <a href="{up}index.html#contact">Contact</a>
+      <a href="{up}#experience">Experience</a>
+      <a href="{up}#skills">Skills</a>
+      <a href="{up}#contact">Contact</a>
     </nav>
     <button class="icon-btn" id="themeToggle" aria-label="Toggle day and night mode">&#9728;&#65039;</button>
     <button class="icon-btn menu-btn" id="menuBtn" aria-label="Toggle menu">&#9776;</button>
