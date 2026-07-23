@@ -44,7 +44,9 @@ from pygments.util import ClassNotFound
 ROOT = Path(__file__).parent.resolve()
 
 SITE_NAME = "Vaikunthan"
-SITE_URL = "https://vaikunthan28.github.io/Portfolio_2"
+# Used for canonical URLs, Open Graph tags and RSS feeds, all of which need
+# absolute URLs. Must match the domain in the CNAME file.
+SITE_URL = "https://vaikunthan.dev"
 
 # directory -> (url segment, hero eyebrow, index heading, singular noun)
 COLLECTIONS = {
@@ -536,6 +538,35 @@ def render_rss(collection: str, posts: list[Post]) -> str:
 # Output
 # --------------------------------------------------------------------------
 
+def verify_cname() -> None:
+    """A custom domain only survives a deploy if CNAME is in the output.
+
+    GitHub Pages reads CNAME from the published artifact. If it goes missing,
+    the custom domain is silently dropped and the site 404s until someone
+    notices. Cheaper to fail the build here.
+    """
+    path = ROOT / "CNAME"
+    if not path.exists():
+        raise BuildError(
+            "CNAME file is missing. GitHub Pages needs it to serve the custom "
+            "domain. Create it containing a single line: vaikunthan.dev"
+        )
+    domain = path.read_text(encoding="utf-8").strip()
+    if not domain or " " in domain or "/" in domain or domain.startswith("http"):
+        raise BuildError(
+            f"CNAME must contain only a bare domain, got {domain!r}. "
+            "No scheme, no path, no trailing slash."
+        )
+    expected = SITE_URL.split("//", 1)[-1].rstrip("/")
+    if domain != expected:
+        raise BuildError(
+            f"CNAME says '{domain}' but SITE_URL is '{SITE_URL}'. "
+            "These must match or canonical tags and RSS links will point at "
+            "the wrong host."
+        )
+    print(f"  ok: CNAME -> {domain}")
+
+
 def copy_static(out_dir: Path) -> None:
     for name in STATIC_PATHS:
         src = ROOT / name
@@ -563,6 +594,7 @@ def main() -> int:
 
     print("validating content")
     try:
+        verify_cname()
         validate_json_files()
         content = {name: load_collection(name) for name in COLLECTIONS}
     except BuildError as exc:
